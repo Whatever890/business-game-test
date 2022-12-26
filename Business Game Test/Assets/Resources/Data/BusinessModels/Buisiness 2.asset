@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3e62ec39809214db290d7c90fe1dee, type: 3}
+  m_Name: Buisiness 2
+  m_EditorClassIdentifier: 
+  _name: Business 2
+  _incomeTimeSeconds: 6
+  _basePrice: 40
+  _baseIncome: 40
+  _enhancements:
+  - _name: Enhancement 1
+    _price: 1200
+    _incomeMultiplyFactor: 1
+    _id: 67c53919-9fd0-43eb-aa5b-12512729c2e9
+  - _name: Enhancement 2
+    _price: 4000
+    _incomeMultiplyFactor: 2
+    _id: a6b0a2d0-b7f4-4da1-bb92-f9721173ecf1
+  _initiallyAcquired: 0
+  _id: caf0be99-8c99-4243-a776-08e332dfbfc5
