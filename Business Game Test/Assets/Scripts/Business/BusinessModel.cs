@@ -23,6 +23,7 @@ namespace Game.Business
         // Permanent unique ID for object used to dynamically receive data from PlayerPrefs. Generated automatically.
         [SerializeField, ScriptableObjectIdAttribute] private string _id;
 
+        // Properties
         public string Name => _name;
         public int IncomeTime => _incomeTimeSeconds;
         public int BasePrice => _basePrice;
@@ -67,6 +68,7 @@ namespace Game.Business
         // Permanent unique ID for object used to dynamically receive data from PlayerPrefs. Generated automatically.
         [SerializeField, ScriptableObjectIdAttribute] private string _id;
 
+        // Properties
         public string Name => _name;
         public int Price => _price;
         public float IncomeMultiplyFactor => _incomeMultiplyFactor;

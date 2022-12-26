@@ -43,8 +43,10 @@ namespace Game.Business
             // Set enhancements
             foreach (BusinessEnhancementModel enhancement in businessModel.Enhancements)
             {
+                // Create business enhancement slot and assign enhancement to it
                 BusinessEnhancementController controller = Instantiate(_enhancementPrefab, _enhancementsContainer);
                 controller.Init(enhancement);
+                // Subscribe on enhancement's OnAcquired event to update income data
                 if (!enhancement.IsAcquired)
                     controller.OnAcquired += RefreshInfo;
             }
@@ -55,6 +57,7 @@ namespace Game.Business
             VisualizeIncomeProgress();
         }
 
+        // Refreses info about level and income
         private void RefreshInfo()
         {
             _acquired = _businessModel.Level > 0;
@@ -63,6 +66,7 @@ namespace Game.Business
             _view.SetIncome(_businessModel.GetIncome());
         }
 
+        // Checks whether upgrade button is affordable and sets it to corresponding status
         private void SetUpgradableStatus()
         {
             int price = _businessModel.GetUpgradePrice();
@@ -70,6 +74,7 @@ namespace Game.Business
             _upgradeButton.SetAvailable(upgradable);
         }
 
+        // Upgrades business
         private void Upgrade()
         {
             int price = _businessModel.GetUpgradePrice();
@@ -81,10 +86,12 @@ namespace Game.Business
 
         private void Update()
         {
+            // If business is acquired, work on income progress bar
             if (_acquired)
                 SetIncomeProgress();
         }
 
+        // Income progress bar routine
         private void SetIncomeProgress()
         {
             if (_leftIncomeTime > 0f)
@@ -101,12 +108,14 @@ namespace Game.Business
             _businessModel.SetLeftIncomeTime(_leftIncomeTime);
         }
 
+        // Set view for income progress bar
         private void VisualizeIncomeProgress()
         {
             float progressValue = 1f - ((1f / _totalIncomeTime) * _leftIncomeTime);
             _view.SetIncomeProgress(progressValue);
         }
 
+        // Receive income
         private void GetIncome()
         {
             int income = _businessModel.GetIncome();

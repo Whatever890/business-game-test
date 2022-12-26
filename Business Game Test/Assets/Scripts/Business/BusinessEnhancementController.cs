@@ -39,6 +39,7 @@ namespace Game.Business
                 SetAcquired();
         }
 
+        // Checks whether buy button is affordable and sets it to corresponding status
         private void SetAffordableStatus()
         {
             int price = _businessEnhancementModel.Price;
@@ -46,6 +47,7 @@ namespace Game.Business
             _buyButton.SetAvailable(affordable);
         }
 
+        // Buys enhancement
         private void Buy()
         {
             SetAcquired();
@@ -55,6 +57,7 @@ namespace Game.Business
             OnAcquired?.Invoke();
         }
 
+        // Set enhancement to acquired
         private void SetAcquired()
         {
             FinanceManager.OnMoneyChanged -= SetAffordableStatus;
